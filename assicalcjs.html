@@ -1,0 +1,142 @@
+
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Document</title>
+
+    <style>
+        fieldset {
+            width: 60%;
+            margin: 20px;
+        }
+    </style>
+
+  
+
+</head>
+
+<body>
+    <fieldset>
+        <legend>Toolbar</legend>
+        <div>
+            Number
+            <input type='text' id='number' />
+            <input type='button' value='Add To List' onclick="addtolist()";   />
+            <input type='button' value='Clear Display' onclick="clearDisplay();"  />
+            <input type='button' value='Reset Calculator' onclick="resetcalc();"  />
+
+            <br/>
+            <input type='button' value='Sum' onclick="sum();"   />
+            <input type='button' value='Average' onclick="average();" />
+            <input type='button' value='Find Min' onclick="findMin()"  />
+
+        </div>
+
+    </fieldset>
+
+    <hr/>
+
+    <fieldset>
+        <legend>Console</legend>
+
+        <div id='console'>
+
+        </div>
+
+    </fieldset>
+
+    <fieldset>
+        <legend>Number List</legend>
+
+        <ul id='numberList'>
+
+        </ul>
+
+        <input type='button' value='refresh list' onclick="refresh();"  />
+    </fieldset>
+
+    <script>
+    
+    var num = document.getElementById("number");
+    var con = document.getElementById("console");
+    var numberList = document.getElementById("numberList");
+    var listele = numberList.getElementsByTagName("li");
+    var tolist = '';
+
+function addtolist(){
+   tolist += `<li> ${num.value} </li>`;
+    document.getElementById("numberList").innerHTML = tolist;
+}
+
+function sum(){
+    
+    
+    var arr = [];
+    var s=0;
+   
+    for(var i = 0; i < listele.length; i++){
+       arr.push(listele[i].innerHTML);
+       s += parseInt(arr[i]);
+    }
+    
+    con.innerHTML += `<br> Sum is ${s}`;
+   
+}
+
+function average(){
+    var arr = [];
+    var av= 0;
+       
+        // add values to the array
+    for(var j = 0; j < listele.length; j++){
+       arr.push(listele[j].innerHTML);
+       av += parseInt(arr[j]);
+   
+    }
+    var avg = av/arr.length;
+   
+    con.innerHTML += `<br> Average is ${avg}`;
+    
+}
+
+function findMin(){
+    var arr = [];
+       
+    for(var k = 0; k < listele.length; k++){
+        arr.push(parseInt(listele[k].innerHTML));
+
+    }
+    var minm = Math.min.apply(null, arr);
+    con.innerHTML += `<br> Smallest element is ${minm}`;
+    
+}
+
+function clearDisplay(){
+    con.innerHTML = "";
+}
+function resetcalc(){
+    
+     con.innerHTML = "";
+     numberList.innerHTML = "";
+     tolist="";
+    
+}
+function refresh(){
+    numberList.innerHTML = "";
+    tolist="";
+}
+
+
+    </script>
+   
+</body>
+
+</html>
+
+   
+
