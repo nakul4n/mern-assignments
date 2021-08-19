@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type='number' id='number' />
+    <input type='button' value='to array'  onclick="toarray()" />
+    <input type='button' value='even nos'  onclick="findevens()" />
+    <input type='button' value='prime nos'  onclick="findprime()" />
+    <input type='button' value='divby 3 and 5'  onclick="findfact35()" />
+    <fieldset>
+        <legend>result</legend>
+
+        <div id='res'>
+
+        </div>
+
+    </fieldset>
+
+<script>
+
+var num = document.getElementById('number');
+
+var arr = [];
+var ev=[];
+var p=[];
+var fact35=[];
+
+function toarray(){
+    
+    
+    
+    
+       arr.push(num.value);
+       
+       console.log(arr);
+       
+    }
+    function findevens()
+    { 
+        
+           for(let element of arr)
+           {
+        if(element%2==0)
+        {
+            ev.push(element);
+        }
+        
+       console.log(ev);   
+       
+    } document.getElementById("res").innerHTML+= `<br> ${ev}`;
+    ev=[];
+    }
+    function isPrime(number) {
+  if (number <= 1) {
+    return false;
+  } else {
+    for (let i = 2; i < number; i++) {
+      if (number % i == 0) {
+        return false;
+      }
+    }
+    return true;
+  }
+}
+    function findprime()
+    {
+        for(let element of arr)
+           {
+           if(isPrime(element))
+             {
+            p.push(element);
+        }
+        console.log(p);  
+           
+    }
+    document.getElementById("res").innerHTML+= `<br> ${p}`;
+    p=[];
+    }
+    function findfact35()
+    { 
+        
+        for(let element of arr)
+        {
+     if(element%3==0&&element%5==0)
+     {
+         fact35.push(element);
+     }
+     
+    console.log(fact35);   
+ } document.getElementById("res").innerHTML+= `<br> ${fact35}`;
+ fact35=[];
+ }
+
+</script>
+   
+</body>
+
+</html>

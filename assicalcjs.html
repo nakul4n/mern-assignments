@@ -65,23 +65,25 @@
     var num = document.getElementById("number");
     var con = document.getElementById("console");
     var numberList = document.getElementById("numberList");
-    var listele = numberList.getElementsByTagName("li");
     var tolist = '';
+    var backup=[];
 
 function addtolist(){
-   tolist += `<li> ${num.value} </li>`;
+var nums = parseFloat(num.value);
+   tolist += `<li> ${nums} </li>`;
     document.getElementById("numberList").innerHTML = tolist;
+    backup.push(nums);
 }
 
 function sum(){
     
     
-    var arr = [];
+    
     var s=0;
    
-    for(var i = 0; i < listele.length; i++){
-       arr.push(listele[i].innerHTML);
-       s += parseInt(arr[i]);
+    for(var i = 0; i < backup.length; i++){
+      
+       s += (backup[i]);
     }
     
     con.innerHTML += `<br> Sum is ${s}`;
@@ -89,46 +91,48 @@ function sum(){
 }
 
 function average(){
-    var arr = [];
+    
     var av= 0;
        
-        // add values to the array
-    for(var j = 0; j < listele.length; j++){
-       arr.push(listele[j].innerHTML);
-       av += parseInt(arr[j]);
+  for(var i = 0; i < backup.length; i++){
+      
+       av += (backup[i]);
    
     }
-    var avg = av/arr.length;
+    var avg = av/backup.length;
    
     con.innerHTML += `<br> Average is ${avg}`;
     
 }
 
 function findMin(){
-    var arr = [];
+    
        
-    for(var k = 0; k < listele.length; k++){
-        arr.push(parseInt(listele[k].innerHTML));
-
-    }
-    var minm = Math.min.apply(null, arr);
+   
+    var minm = Math.min.apply(null, backup);
     con.innerHTML += `<br> Smallest element is ${minm}`;
     
 }
 
 function clearDisplay(){
     con.innerHTML = "";
+     numberList.innerHTML = "";
+     tolist="";
+      num.value='';
+    
 }
 function resetcalc(){
     
      con.innerHTML = "";
      numberList.innerHTML = "";
      tolist="";
+     backup=[];
+     num.value='';
     
 }
 function refresh(){
     numberList.innerHTML = "";
-    tolist="";
+    
 }
 
 
