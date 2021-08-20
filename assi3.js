@@ -65,14 +65,18 @@ function avgprice(books)
             }
         }
 
-    /* function newobj(book)
+     function newobj(book)
      { let newob=[];
+        
         for(let i of books)
         {
-            newob.push({i.title,i.price});
-        }
+            var newobject={};
+            newobject.title=i.title;
+            newobject.price=i.price;
+            newob.push(newobject);
+        } return newob;
     }
-*/
+
      
 
 
@@ -102,4 +106,6 @@ let ti=titlesearch(books,'book2');
 
 let pr=pricerange(books,200,100);
 let rr=ratingrange(books,3,1);
+let newobjj=newobj(books);
+console.log('newobject',newobjj);
 
