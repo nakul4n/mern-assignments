@@ -3,7 +3,7 @@ function countdown(max) {
 
     return new Promise(function (resolve, reject) {
        
-        let iid = setInterval(() => {
+        let stop = setInterval(() => {
 
             if (max <0) {
                
@@ -11,7 +11,7 @@ function countdown(max) {
             }
 
             if (count<0) { 
-                clearInterval(iid); 
+                clearInterval(stop); 
                 
                 return resolve();
             }
