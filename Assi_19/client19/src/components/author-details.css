@@ -1,0 +1,13 @@
+.author-det{
+    display:flex
+}
+.author-bio{
+    margin-left: 100px;
+}
+.author-det img{ 
+    border: 5px solid rgb(44, 9, 9);
+    border-radius: 10px;
+    box-shadow: 10px 10px 10px rgb(119, 117, 117);
+    border-style:dotted;
+   
+}
